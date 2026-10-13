@@ -1,0 +1,93 @@
+name: Build Chouhan AI APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build & Release Chouhan AI APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Set up Flutter 3.22.0
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+
+      - name: Flutter Dependencies
+        run: |
+          if [ -f "pubspec.yaml" ]; then
+            flutter pub get
+          else
+            echo "pubspec.yaml not present, proceeding with Android build fallback if needed"
+          fi
+
+      - name: Build Flutter APKs
+        run: |
+          mkdir -p build/app/outputs/flutter-apk
+          if [ -f "pubspec.yaml" ]; then
+            flutter build apk --debug --build-name=2.2.11 --build-number=11
+            flutter build apk --release --build-name=2.2.11 --build-number=11
+          elif [ -f "gradlew" ]; then
+            chmod +x gradlew
+            ./gradlew assembleDebug
+            ./gradlew assembleRelease || true
+            mkdir -p build/app/outputs/flutter-apk
+            cp -f app/build/outputs/apk/debug/*.apk build/app/outputs/flutter-apk/app-debug.apk 2>/dev/null || true
+            cp -f app/build/outputs/apk/release/*.apk build/app/outputs/flutter-apk/app-release.apk 2>/dev/null || true
+          fi
+
+      - name: Upload Debug APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
+          if-no-files-found: ignore
+
+      - name: Upload Release APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-release
+          path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: ignore
+
+      - name: Create GitHub Release v2.2.11
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main'
+        with:
+          tag_name: v2.2.11
+          name: "Chouhan AI Assistant v2.2.11 - All-in-One 11 Agents + MYRA & STONIC Engine"
+          body: |
+            # 👑 Chouhan AI Assistant Voice Agent - Empire Edition
+            ### Latest v2.2.11 (MYRA + STONIC + 11 Agents)
+            
+            - **Developer:** Dayaram-Bheel
+            - **DEBUG APK (Direct Install - Recommended):** Direct 1-click install without signature verification issues.
+            - **RELEASE APK:** Production optimized build.
+            - **11 Sovereign Agents:** MYRA, KAYRA, MAYA, JARVIS, ZOYA, VYRON, ARCHER, NOVA, STONIC, LUNA, RESUMAX.
+            - **Media Commander:** STONIC Spotify Workspace (#96CEB4 waveform, Mata Rani Bhajans, Chouhan Empire Mix).
+            - **Career Engine:** RESUMAX ATS Resume Scanner (Gold 85/100 benchmark, missing keyword pills, 1-tap cover letter).
+            - **Voice Clone:** ElevenLabs Studio integration + speakWithClonedVoice.
+            - **Firebase Cloud:** polynomial-park-511512-h0 (asia-southeast1).
+            - **Package ID:** `com.chouhan.empire.ai.assistant`.
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            build/app/outputs/flutter-apk/app-debug.apk
+            build/app/outputs/flutter-apk/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

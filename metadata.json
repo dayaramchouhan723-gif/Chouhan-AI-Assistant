@@ -1,0 +1,6 @@
+{
+  "name": "Chouhan AI Assistant",
+  "description": "Empire Edition Voice Agent with MYRA Engine and 11 specialized autonomous agents",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
