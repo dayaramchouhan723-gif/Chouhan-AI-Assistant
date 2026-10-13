@@ -1,0 +1,11 @@
+#!/bin/sh
+# Gradle wrapper script
+DIR="$(cd "$(dirname "$0")" && pwd)"
+if [ -f "$DIR/gradle/wrapper/gradle-wrapper.jar" ]; then
+    exec java -jar "$DIR/gradle/wrapper/gradle-wrapper.jar" "$@"
+elif command -v gradle >/dev/null 2>&1; then
+    exec gradle "$@"
+else
+    echo "Gradle not found in PATH." >&2
+    exit 1
+fi
