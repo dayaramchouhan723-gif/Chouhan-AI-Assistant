@@ -135,7 +135,7 @@ export const App: React.FC = () => {
                   11/11 Online
                 </span>
                 <span className="px-2 py-0.5 text-xs font-mono bg-rose-950 text-rose-300 border border-rose-800 rounded">
-                  v2.2.17
+                  v2.2.18
                 </span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
@@ -249,12 +249,12 @@ export const App: React.FC = () => {
       <footer className="border-t border-slate-900 bg-[#060810] py-5 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span>👑 Chouhan AI Assistant v2.2.17</span>
+            <span>👑 Chouhan AI Assistant v2.2.18</span>
             <span>•</span>
-            <span className="text-amber-400 font-mono">com.example.chouhanassistant</span>
+            <span className="text-amber-400 font-mono">com.chouhan.aiassistant</span>
           </div>
           <div className="text-slate-400">
-            Developer: <span className="text-white font-semibold">Dayaram-Bheel</span> | Firebase: <span className="text-cyan-400 font-mono">polynomial-park-511512-h0</span> (asia-southeast1)
+            Developer: <span className="text-white font-semibold">dayaramchouhan723-gif</span> | Firebase: <span className="text-cyan-400 font-mono">polynomial-park-511512-h0</span> (asia-southeast1)
           </div>
         </div>
       </footer>

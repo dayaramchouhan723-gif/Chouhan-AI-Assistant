@@ -9,15 +9,15 @@ plugins {
 }
 
 android {
-  namespace = "com.example.chouhanassistant"
+  namespace = "com.chouhan.aiassistant"
   compileSdk = 34
 
   defaultConfig {
-    applicationId = "com.example.chouhanassistant"
+    applicationId = "com.chouhan.aiassistant"
     minSdk = 24
     targetSdk = 34
-    versionCode = 17
-    versionName = "2.2.17"
+    versionCode = 18
+    versionName = "2.2.18"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -62,9 +62,6 @@ android {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
   }
-  kotlinOptions {
-    jvmTarget = "17"
-  }
 
   // XOS Battery Optimization - Keep alive
   packaging {
@@ -81,6 +78,10 @@ android {
     includeInApk = false
     includeInBundle = true
   }
+}
+
+kotlin {
+  jvmToolchain(17)
 }
 
 // Configure the Secrets Gradle Plugin to use .env and .env.example files

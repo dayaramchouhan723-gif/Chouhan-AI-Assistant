@@ -1,10 +1,10 @@
 # 👑 Chouhan AI Assistant Voice Agent - Empire Edition
 ## Direct Download - No Error - 1 Click Install
-### Latest v2.2.17 (Fixed compileSdk 34 + All Devices)
+### Latest v2.2.18 (Zero-Error Build 18)
 
-- **DEBUG APK (Direct Install - Recommended):** [Download app-debug.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.17/app-debug.apk)
-- **RELEASE APK:** [Download app-release.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.17/app-release.apk)
-- **SOURCE CODE ZIP:** [Download Source Code](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/archive/refs/tags/v2.2.17.zip)
+- **DEBUG APK (Direct Install - Recommended):** [Download app-debug.apk](https://github.com/dayaramchouhan723-gif/Chouhan-AI-Assistant/releases/download/v2.2.18/app-debug.apk)
+- **RELEASE APK:** [Download app-release.apk](https://github.com/dayaramchouhan723-gif/Chouhan-AI-Assistant/releases/download/v2.2.18/app-release.apk)
+- **SOURCE CODE ZIP:** [Download Source Code](https://github.com/dayaramchouhan723-gif/Chouhan-AI-Assistant/archive/refs/tags/v2.2.18.zip)
 
 ---
 
@@ -19,10 +19,10 @@
 | Parameter | Value |
 | :--- | :--- |
 | **App Name** | Chouhan AI Assistant |
-| **Edition** | Empire Edition v2.2.17 (compileSdk 34 Fixed) |
-| **Developer** | Dayaram-Bheel |
+| **Edition** | Empire Edition v2.2.18 |
+| **Developer** | dayaramchouhan723-gif |
 | **Compatibility** | Android 7.0 to Android 14+ (minSdk 24, targetSdk 34) |
-| **Package ID** | `com.example.chouhanassistant` |
+| **Package ID** | `com.chouhan.aiassistant` |
 | **Main Engine** | MYRA Neural Voice Core (148 Languages + OCR + Vision) |
 | **Media Engine** | STONIC Spotify & Media Commander (#96CEB4) |
 | **Career Engine** | RESUMAX ATS Resume Scanner (Gold 85/100 Dubai/UAE) |

@@ -179,7 +179,7 @@ fun ChouhanAiScreen(
                                     border = androidx.compose.foundation.BorderStroke(1.dp, Color(0x66F59E0B))
                                 ) {
                                     Text(
-                                        "v2.2.17",
+                                        "v2.2.18",
                                         color = Color(0xFFF59E0B),
                                         fontSize = 10.sp,
                                         fontWeight = FontWeight.Bold,
@@ -615,7 +615,7 @@ fun ChouhanAiScreen(
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            "Package: com.chouhan.empire.ai.assistant",
+                            "Package: com.chouhan.aiassistant",
                             color = Color(0xFF64748B),
                             fontSize = 10.sp
                         )
