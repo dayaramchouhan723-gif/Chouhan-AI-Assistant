@@ -1,10 +1,10 @@
 # 👑 Chouhan AI Assistant Voice Agent - Empire Edition
 ## Direct Download - No Error - 1 Click Install
-### Latest v2.2.16 (Infinix X693 Android 11 Helio G85 Edition)
+### Latest v2.2.16 (Infinix X693 Android 11 Edition)
 
-- **DEBUG APK (Direct Install - Recommended):** [Download app-debug.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.16-Infinix-Android11/app-debug.apk)
-- **RELEASE APK:** [Download app-release.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.16-Infinix-Android11/app-release.apk)
-- **SOURCE CODE ZIP:** [Download Source Code](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/archive/refs/tags/v2.2.16-Infinix-Android11.zip)
+- **DEBUG APK (Direct Install - Recommended):** [Download app-debug.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.16/app-debug.apk)
+- **RELEASE APK:** [Download app-release.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.16/app-release.apk)
+- **SOURCE CODE ZIP:** [Download Source Code](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/archive/refs/tags/v2.2.16.zip)
 
 ---
 
@@ -19,9 +19,9 @@
 | Parameter | Value |
 | :--- | :--- |
 | **App Name** | Chouhan AI Assistant |
-| **Edition** | Empire Edition v2.2.16 (Infinix X693 Helio G85) |
+| **Edition** | Empire Edition v2.2.16 |
 | **Developer** | Dayaram-Bheel |
-| **Target Hardware** | Infinix X693 (Android 11 API 30 / Helio G85 arm64-v8a) |
+| **Target Hardware** | Infinix X693 (Android 11 API 30) |
 | **Package ID** | `com.example.chouhanassistant` |
 | **Main Engine** | MYRA Neural Voice Core (148 Languages + OCR + Vision) |
 | **Media Engine** | STONIC Spotify & Media Commander (#96CEB4) |

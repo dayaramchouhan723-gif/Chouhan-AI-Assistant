@@ -18,12 +18,7 @@ android {
     minSdk = 24
     targetSdk = 33
     versionCode = 16
-    versionName = "2.2.16-Infinix-Android11"
-
-    // Only arm64/arm for Helio G85 - Smaller APK + Fast install on Infinix
-    ndk {
-      abiFilters += listOf("arm64-v8a", "armeabi-v7a")
-    }
+    versionName = "2.2.16"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
