@@ -10,15 +10,14 @@ plugins {
 
 android {
   namespace = "com.example.chouhanassistant"
-  compileSdk = 33
-  buildToolsVersion = "33.0.1"
+  compileSdk = 34
 
   defaultConfig {
     applicationId = "com.example.chouhanassistant"
     minSdk = 24
-    targetSdk = 33
-    versionCode = 16
-    versionName = "2.2.16"
+    targetSdk = 34
+    versionCode = 17
+    versionName = "2.2.17"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -62,6 +61,9 @@ android {
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+  }
+  kotlinOptions {
+    jvmTarget = "17"
   }
 
   // XOS Battery Optimization - Keep alive

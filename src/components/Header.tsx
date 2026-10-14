@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
                 Chouhan AI Assistant
               </h1>
               <span className="px-2 py-0.5 text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
-                Empire v2.2.16
+                Empire v2.2.17
               </span>
             </div>
             <p className="text-xs text-slate-400 flex items-center gap-2">
