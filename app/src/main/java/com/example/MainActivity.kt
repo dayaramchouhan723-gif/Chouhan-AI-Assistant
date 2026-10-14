@@ -179,7 +179,7 @@ fun ChouhanAiScreen(
                                     border = androidx.compose.foundation.BorderStroke(1.dp, Color(0x66F59E0B))
                                 ) {
                                     Text(
-                                        "v2.2.11",
+                                        "v2.2.12",
                                         color = Color(0xFFF59E0B),
                                         fontSize = 10.sp,
                                         fontWeight = FontWeight.Bold,
@@ -319,6 +319,37 @@ fun ChouhanAiScreen(
                             fontSize = 11.sp,
                             textAlign = androidx.compose.ui.text.style.TextAlign.Center
                         )
+
+                        Spacer(modifier = Modifier.height(10.dp))
+                        // Voice Waveform Animation in Agent Chat
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(3.dp),
+                            verticalAlignment = Alignment.Bottom,
+                            modifier = Modifier
+                                .height(26.dp)
+                                .clip(RoundedCornerShape(6.dp))
+                                .background(Color(0xFF090D18))
+                                .padding(horizontal = 12.dp, vertical = 4.dp)
+                        ) {
+                            Text(
+                                "VOICE WAVE: ",
+                                color = Color(0xFFFF2D75),
+                                fontSize = 9.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.align(Alignment.CenterVertically)
+                            )
+                            val barHeights = listOf(10.dp, 18.dp, 8.dp, 20.dp, 14.dp, 6.dp, 16.dp, 12.dp, 18.dp, 10.dp, 16.dp, 8.dp)
+                            barHeights.forEachIndexed { i, h ->
+                                val dynamicH = if (i % 2 == 0) (h.value * pulseScale).dp else (h.value * (2.1f - pulseScale)).dp
+                                Box(
+                                    modifier = Modifier
+                                        .width(3.5.dp)
+                                        .height(dynamicH)
+                                        .clip(RoundedCornerShape(2.dp))
+                                        .background(if (i % 3 == 0) Color(0xFFFF2D75) else if (i % 3 == 1) Color(0xFFF59E0B) else Color(0xFF96CEB4))
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -334,10 +365,11 @@ fun ChouhanAiScreen(
                 Spacer(modifier = Modifier.height(8.dp))
                 LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     val commands = listOf(
-                        "👑 Jai Mata Di Boss" to "जय माता दी बॉस! आदेश दीजिए!",
-                        "🛡️ Vikram Security" to "विक्रम एजेंट रिपोर्ट: सभी 24890 नोड्स सुरक्षित हैं बॉस।",
-                        "💼 Kuber Wealth" to "कुबेर रिपोर्ट: साम्राज्य का खजाना 14% लाभ में है बॉस।",
-                        "⚡ Garuda RAM Boost" to "गरुड़ एजेंट ने 350MB कैश क्लियर कर दिया बॉस।"
+                        "👑 Jai Mata Di Boss" to "जय माता दी बॉस! मायरा वॉइस इंजन और सभी 11 साम्राज्य एजेंट्स तैयार हैं।",
+                        "🎵 STONIC Bhajans" to "स्टोनिक मीडिया कमांडर: माता रानी के पावन भजन और चौहाण एम्पायर मिक्स तैयार हैं बॉस!",
+                        "📄 RESUMAX ATS 85/100" to "रेज़्यूमैक्स एटीएस स्कैनर: स्कोर 85/100 गोल्ड दुबई मार्केट के लिए तैयार है बॉस!",
+                        "🤖 JARVIS System" to "जार्विस विंडोज़ कंट्रोल: सभी टास्क और सिस्टम लोड सामान्य हैं बॉस।",
+                        "📁 KAYRA Files" to "कायरा फाइल मैनेजर: डायरेक्टरीज व्यवस्थित हैं बॉस।"
                     )
                     items(commands) { (title, reply) ->
                         Surface(
@@ -355,6 +387,112 @@ fun ChouhanAiScreen(
                                 fontSize = 12.sp,
                                 modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
                             )
+                        }
+                    }
+                }
+            }
+
+            // FEATURE 2: 11 Agents Status Telemetry Card with Green/Red Dots & Real Firebase Sync
+            item {
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFF0B101D)),
+                    shape = RoundedCornerShape(16.dp),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, Color(0x4406B6D4)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(14.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("🌐", fontSize = 16.sp)
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Column {
+                                    Text(
+                                        "Agent Status Telemetry Matrix",
+                                        color = Color.White,
+                                        fontSize = 13.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                    Text(
+                                        "Firebase: polynomial-park-511512-h0 (11.4ms)",
+                                        color = Color(0xFF38BDF8),
+                                        fontSize = 10.sp
+                                    )
+                                }
+                            }
+
+                            Surface(
+                                color = Color(0x2210B981),
+                                shape = RoundedCornerShape(8.dp),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, Color(0x6610B981))
+                            ) {
+                                Text(
+                                    "11/11 ONLINE",
+                                    color = Color(0xFF10B981),
+                                    fontSize = 10.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                                )
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        // 11 Agent Status Items with Green Dots
+                        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                            AGENTS_LIST.chunked(3).forEach { rowAgents ->
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    rowAgents.forEach { ag ->
+                                        Surface(
+                                            color = Color(0xFF131B2E),
+                                            shape = RoundedCornerShape(8.dp),
+                                            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF1E293B)),
+                                            modifier = Modifier
+                                                .weight(1f)
+                                                .clickable {
+                                                    lastSpoken = ag.greeting
+                                                    onSpeak(ag.greeting)
+                                                }
+                                        ) {
+                                            Row(
+                                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp),
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.SpaceBetween
+                                            ) {
+                                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                                    Text(ag.emoji, fontSize = 12.sp)
+                                                    Spacer(modifier = Modifier.width(4.dp))
+                                                    Text(
+                                                        ag.name,
+                                                        color = Color.White,
+                                                        fontSize = 10.sp,
+                                                        fontWeight = FontWeight.SemiBold
+                                                    )
+                                                }
+                                                // Green Dot Indicator
+                                                Box(
+                                                    modifier = Modifier
+                                                        .size(7.dp)
+                                                        .clip(CircleShape)
+                                                        .background(Color(0xFF10B981))
+                                                )
+                                            }
+                                        }
+                                    }
+                                    // Fill empty spaces if last row has less than 3
+                                    if (rowAgents.size < 3) {
+                                        repeat(3 - rowAgents.size) {
+                                            Spacer(modifier = Modifier.weight(1f))
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

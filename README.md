@@ -1,10 +1,10 @@
 # 👑 Chouhan AI Assistant Voice Agent - Empire Edition
 ## Direct Download - No Error - 1 Click Install
-### Latest v2.2.11 (MYRA Engine + 11 Agents)
+### Latest v2.2.12 (MYRA Engine + 11 Agents)
 
-- **DEBUG APK (Direct Install - Recommended):** [Download app-debug.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.11/app-debug.apk)
-- **RELEASE APK:** [Download app-release.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.11/app-release.apk)
-- **SOURCE CODE ZIP:** [Download Source Code](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/archive/refs/tags/v2.2.11.zip)
+- **DEBUG APK (Direct Install - Recommended):** [Download app-debug.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.12/app-debug.apk)
+- **RELEASE APK:** [Download app-release.apk](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.12/app-release.apk)
+- **SOURCE CODE ZIP:** [Download Source Code](https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/archive/refs/tags/v2.2.12.zip)
 
 ---
 
@@ -19,7 +19,7 @@
 | Parameter | Value |
 | :--- | :--- |
 | **App Name** | Chouhan AI Assistant |
-| **Edition** | Empire Edition v2.2.11 |
+| **Edition** | Empire Edition v2.2.12 |
 | **Developer** | Dayaram-Bheel |
 | **Package ID** | `com.chouhan.empire.ai.assistant` |
 | **Main Engine** | MYRA Neural Voice Core (148 Languages + OCR + Vision) |

@@ -543,31 +543,83 @@ export const VoiceCore: React.FC<VoiceCoreProps> = ({
         </div>
       )}
 
-      {/* Spoken Response Banner if present */}
+      {/* Spoken Response Banner with Voice Visualization Waveform */}
       {lastResponse && (
-        <div className="mt-4 pt-3 border-t border-slate-800 flex items-start gap-3 bg-slate-950/60 p-3 rounded-xl border border-rose-500/20">
-          <div className="w-7 h-7 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-300 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
-            🎙️
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-rose-400">{lastResponse.agent} Response:</span>
-              <button
-                onClick={() => {
-                  setIsSpeaking(true);
-                  speechService.speak(lastResponse.text, () => setIsSpeaking(false), true);
-                }}
-                className="text-[11px] text-slate-400 hover:text-rose-300 flex items-center gap-1"
-                title="Re-play Voice"
-              >
-                <Volume2 className="w-3 h-3" />
-                <span>Replay Voice</span>
-              </button>
+        <div className={`mt-4 pt-3 border-t border-slate-800 flex flex-col gap-2.5 bg-slate-950/80 p-4 rounded-xl border transition-all ${
+          isSpeaking ? 'border-rose-500/60 shadow-lg shadow-rose-500/15' : 'border-slate-800'
+        }`}>
+          <div className="flex items-start gap-3">
+            <div className="relative shrink-0 mt-0.5">
+              {isSpeaking && (
+                <div className="absolute -inset-1 rounded-lg bg-rose-500/30 animate-ping"></div>
+              )}
+              <div className="w-8 h-8 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-300 flex items-center justify-center text-sm font-bold relative z-10">
+                🎙️
+              </div>
             </div>
-            <p className="text-xs text-slate-200 mt-1 leading-relaxed">
-              {lastResponse.text}
-            </p>
+
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-rose-400">{lastResponse.agent} Response:</span>
+                  {isSpeaking ? (
+                    <span className="px-2 py-0.5 text-[9px] font-mono font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded flex items-center gap-1 animate-pulse">
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                      TTS SPEAKING NOW
+                    </span>
+                  ) : (
+                    <span className="px-1.5 py-0.5 text-[9px] font-mono text-slate-500 bg-slate-900 rounded">
+                      SYNTHESIZED
+                    </span>
+                  )}
+                </div>
+
+                <button
+                  onClick={() => {
+                    setIsSpeaking(true);
+                    speechService.speak(lastResponse.text, () => setIsSpeaking(false), true);
+                  }}
+                  className="text-[11px] text-slate-400 hover:text-rose-300 flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition-colors"
+                  title="Re-play Voice"
+                >
+                  <Volume2 className="w-3 h-3 text-rose-400" />
+                  <span>Replay Voice</span>
+                </button>
+              </div>
+
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                {lastResponse.text}
+              </p>
+            </div>
           </div>
+
+          {/* Dynamic Voice Bars Waveform Animation in Agent Chat */}
+          {isSpeaking && (
+            <div className="mt-1 pt-2.5 border-t border-slate-800/80 flex items-center justify-between gap-3 bg-[#0A0D18] px-3.5 py-2 rounded-lg border border-rose-500/30">
+              <div className="flex items-center gap-2 text-[10px] font-mono text-rose-300 font-bold uppercase tracking-wider shrink-0">
+                <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                <span>Voice Audio Waveform:</span>
+              </div>
+
+              {/* 20 Animated Sound Wave Spectrum Bars */}
+              <div className="flex-1 flex items-end justify-center gap-1 h-7 px-2">
+                {voiceWaveLevel.concat(voiceWaveLevel.slice(0, 8)).map((height, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      height: `${Math.max(15, height)}%`,
+                      backgroundColor: idx % 2 === 0 ? '#FF2D75' : '#F59E0B'
+                    }}
+                    className="w-1 rounded-full transition-all duration-100 shadow-[0_0_6px_rgba(255,45,117,0.6)]"
+                  />
+                ))}
+              </div>
+
+              <span className="text-[10px] font-mono text-slate-400 shrink-0 hidden sm:inline">
+                44.1 kHz • hi-IN / en-IN
+              </span>
+            </div>
+          )}
         </div>
       )}
     </div>

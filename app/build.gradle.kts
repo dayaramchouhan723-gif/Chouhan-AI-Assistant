@@ -10,14 +10,15 @@ plugins {
 
 android {
   namespace = "com.example"
-  compileSdk { version = release(36) { minorApiLevel = 1 } }
+  compileSdk = 35
+  buildToolsVersion = "35.0.0"
 
   defaultConfig {
     applicationId = "com.example"
     minSdk = 24
-    targetSdk = 36
-    versionCode = 11
-    versionName = "2.2.11"
+    targetSdk = 35
+    versionCode = 13
+    versionName = "2.2.12"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }

@@ -8,6 +8,7 @@ import { AgentModal } from './components/AgentModal';
 import { DownloadModal } from './components/DownloadModal';
 import { ActivityFeed } from './components/ActivityFeed';
 import { ATSScore } from './components/ATSScore';
+import { TelemetryCard } from './components/TelemetryCard';
 import { speechService } from './utils/speech';
 import { Crown, Sparkles, Search, Music, FileText } from 'lucide-react';
 
@@ -134,7 +135,7 @@ export const App: React.FC = () => {
                   11/11 Online
                 </span>
                 <span className="px-2 py-0.5 text-xs font-mono bg-rose-950 text-rose-300 border border-rose-800 rounded">
-                  v2.2.11
+                  v2.2.12
                 </span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
@@ -188,6 +189,9 @@ export const App: React.FC = () => {
           setIsSpeaking={setIsSpeaking}
           lastResponse={lastResponse}
         />
+
+        {/* Real Firebase Agent Status Telemetry Card (11 Agents Green/Red Matrix) */}
+        <TelemetryCard agents={agents} />
 
         {/* Agents Section */}
         <section className="space-y-4">
@@ -245,7 +249,7 @@ export const App: React.FC = () => {
       <footer className="border-t border-slate-900 bg-[#060810] py-5 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span>👑 Chouhan AI Assistant v2.2.11</span>
+            <span>👑 Chouhan AI Assistant v2.2.12</span>
             <span>•</span>
             <span className="text-amber-400 font-mono">com.chouhan.empire.ai.assistant</span>
           </div>
