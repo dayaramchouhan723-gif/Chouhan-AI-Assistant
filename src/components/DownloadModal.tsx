@@ -17,9 +17,9 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose })
     setTimeout(() => setCopiedLink(null), 2000);
   };
 
-  const debugApkUrl = 'https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.12/app-debug.apk';
-  const releaseApkUrl = 'https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.12/app-release.apk';
-  const sourceZipUrl = 'https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/archive/refs/tags/v2.2.12.zip';
+  const debugApkUrl = 'https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.16-Infinix-Android11/app-debug.apk';
+  const releaseApkUrl = 'https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/releases/download/v2.2.16-Infinix-Android11/app-release.apk';
+  const sourceZipUrl = 'https://github.com/Dayaram-Bheel/Chouhan-AI-Assistant/archive/refs/tags/v2.2.16-Infinix-Android11.zip';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
@@ -34,7 +34,7 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose })
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-bold text-slate-100">Direct Download & 1-Click Install</h2>
                 <span className="px-2 py-0.5 text-xs font-bold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                  v2.2.12
+                  v2.2.16-Infinix
                 </span>
               </div>
               <p className="text-xs text-slate-400">

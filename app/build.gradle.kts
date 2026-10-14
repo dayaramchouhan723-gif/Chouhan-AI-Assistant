@@ -9,16 +9,21 @@ plugins {
 }
 
 android {
-  namespace = "com.example"
-  compileSdk = 35
-  buildToolsVersion = "35.0.0"
+  namespace = "com.example.chouhanassistant"
+  compileSdk = 33
+  buildToolsVersion = "33.0.1"
 
   defaultConfig {
-    applicationId = "com.example"
+    applicationId = "com.example.chouhanassistant"
     minSdk = 24
-    targetSdk = 35
-    versionCode = 13
-    versionName = "2.2.12"
+    targetSdk = 33
+    versionCode = 16
+    versionName = "2.2.16-Infinix-Android11"
+
+    // Only arm64/arm for Helio G85 - Smaller APK + Fast install on Infinix
+    ndk {
+      abiFilters += listOf("arm64-v8a", "armeabi-v7a")
+    }
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -51,15 +56,24 @@ android {
       signingConfig = signingConfigs.getByName("release")
     }
     debug {
-      applicationIdSuffix = ".debug"
+      isMinifyEnabled = false
+      isShrinkResources = false
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
       // Do not remove or modify this signingConfig assignment. It is necessary for Android apps in
       // AI Studio.
       signingConfig = signingConfigs.getByName("debugConfig")
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+  }
+
+  // XOS Battery Optimization - Keep alive
+  packaging {
+    resources {
+      excludes += "/META-INF/{AL2.0,LGPL2.1}"
+    }
   }
   buildFeatures {
     compose = true
